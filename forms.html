@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário - Wysley </title>
+    <style>
+        body {
+            background-color: #ffe6f0;
+            font-family: 'Segoe UI', sans-serif;
+            padding: 30px;
+        }
+
+        .form-container, .mensagem-enviada {
+            background-color: #fff0f5;
+            border: 2px solid #ffb6c1;
+            border-radius: 15px;
+            padding: 25px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0px 0px 15px #ffb6c1;
+        }
+
+        h2 {
+            text-align: center;
+            color: #d63384;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            color: #b03060;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 10px;
+            border: 1px solid #ffb6c1;
+            background-color: #fff0f5;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        fieldset {
+            border: 2px solid #ffb6c1;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            background-color: #ffeaf4;
+        }
+
+        legend {
+            padding: 0 10px;
+            color: #d63384;
+            font-weight: bold;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            margin-top: 10px;
+            color: #b03060;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .submit-button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: 16px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .submit-button:hover {
+            background-color: #ff1493;
+        }
+
+        .mensagem-enviada {
+            display: none;
+            text-align: center;
+        }
+
+        .mensagem-enviada h2 {
+            color: #ff1493;
+            font-size: 24px;
+        }
+
+        .mensagem-enviada p {
+            font-size: 18px;
+            color: #b03060;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container" id="formulario">
+        <form id="meuFormulario">
+            <h2>Formulário para trabalho 💖</h2>
+
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="email">E-mail:</label>
+            <input type="text" id="email" name="email">
+
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
+
+            <label for="assunto">Assunto:</label>
+            <select id="assunto" name="assunto">
+                <option value="elogio">Elogio</option>
+                <option value="duvida">Dúvida</option>
+                <option value="sugestao">Sugestão</option>
+                <option value="reclamacao">Reclamação</option>
+            </select>
+
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+
+            <fieldset>
+                <legend>Como foi sua experiência?</legend>
+                <div class="radio-group">
+                    <input type="radio" name="experiencia" id="excelente" value="excelente">
+                    <label for="excelente">Excelente</label><br>
+
+                    <input type="radio" name="experiencia" id="boa" value="boa">
+                    <label for="boa">Boa</label><br>
+
+                    <input type="radio" name="experiencia" id="ruim" value="ruim">
+                    <label for="ruim">Ruim</label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Quais temas você gostaria de receber novidades?</legend>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="novidades" name="interesses" value="novidades">
+                    <label for="novidades">Novidades</label><br>
+
+                    <input type="checkbox" id="promocoes" name="interesses" value="promocoes">
+                    <label for="promocoes">Promoções</label><br>
+
+                    <input type="checkbox" id="eventos" name="interesses" value="eventos">
+                    <label for="eventos">Eventos</label>
+                </div>
+            </fieldset>
+
+            <button type="submit" class="submit-button">Enviar 💌</button>
+        </form>
+    </div>
+
+    <div class="mensagem-enviada" id="confirmacao">
+        <h2>Mensagem enviada com sucesso! 💕</h2>
+        <p>Obrigada por entrar em contato. Vamos responder rapidinho! ✨</p>
+    </div>
+
+    <script>
+        const formulario = document.getElementById('meuFormulario');
+        const divFormulario = document.getElementById('formulario');
+        const confirmacao = document.getElementById('confirmacao');
+
+        formulario.addEventListener('submit', function(event) {
+            event.preventDefault(); // impede o envio real
+            divFormulario.style.display = 'none';
+            confirmacao.style.display = 'block';
+        });
+    </script>
+
+</body>
+</html>
